@@ -38,6 +38,7 @@ export const Hero = () => {
               <Button
                 color="secondary-outline"
                 size="lg"
+                className="xs:block hidden"
               >
                 Order Online
               </Button>

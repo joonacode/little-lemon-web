@@ -97,3 +97,161 @@ export const TESTIMONI = [
     comment: "Little Lemon is a hidden gem in the city. The food is absolutely amazing, and the service is top-notch. I had the moussaka, and it was the best I've ever had. The atmosphere is cozy and inviting. Highly recommend",
   },
 ];
+
+
+export const CATEGORY_FLOOR = [
+  {
+    label: "1st Floor",
+    value: "floor1",
+  },
+  {
+    label: "2nd Floor",
+    value: "floor2",
+  },
+  {
+    label: "Outdor",
+    value: "outdor",
+  },
+  {
+    label: "Rooftop",
+    value: "rooftop",
+  },
+  {
+    label: "Basement",
+    value: "basement",
+  },
+];
+
+
+export const LIST_TABLES = [
+  {
+    number: "2",
+    location: "floor1",
+    isAvailable: true,
+  },
+  {
+    number: "3",
+    location: "floor1",
+    isAvailable: true,
+  },
+  {
+    number: "3",
+    location: "floor1",
+    isAvailable: true,
+  },
+  {
+    number: "3",
+    location: "floor1",
+    isAvailable: true,
+  },
+  {
+    number: "2",
+    location: "floor1",
+    isAvailable: false,
+  },
+  {
+    number: "2",
+    location: "floor1",
+    isAvailable: true,
+  },
+  {
+    number: "2",
+    location: "floor1",
+    isAvailable: true,
+  },
+  {
+    number: "3",
+    location: "floor1",
+    isAvailable: true,
+  },
+  {
+    number: "2",
+    location: "floor1",
+    isAvailable: false,
+  },
+  {
+    number: "2",
+    location: "floor2",
+    isAvailable: false,
+  },
+  {
+    number: "2",
+    location: "floor2",
+    isAvailable: false,
+  },
+  {
+    number: "2",
+    location: "floor2",
+    isAvailable: false,
+  },
+  {
+    number: "3",
+    location: "floor2",
+    isAvailable: false,
+  },
+  {
+    number: "3",
+    location: "floor2",
+    isAvailable: false,
+  },
+  {
+    number: "3",
+    location: "floor2",
+    isAvailable: true,
+  },
+  {
+    number: "2",
+    location: "outdor",
+    isAvailable: true,
+  },
+  {
+    number: "2",
+    location: "outdor",
+    isAvailable: true,
+  },
+  {
+    number: "3",
+    location: "rooftop",
+    isAvailable: true,
+  },
+  {
+    number: "3",
+    location: "rooftop",
+    isAvailable: true,
+  },
+  {
+    number: "3",
+    location: "rooftop",
+    isAvailable: false,
+  },
+  {
+    number: "3",
+    location: "basement",
+    isAvailable: true,
+  },
+  {
+    number: "3",
+    location: "basement",
+    isAvailable: true,
+  },
+  {
+    number: "2",
+    location: "basement",
+    isAvailable: true,
+  },
+  {
+    number: "3",
+    location: "basement",
+    isAvailable: true,
+  },
+  {
+    number: "2",
+    location: "basement",
+    isAvailable: true,
+  },
+  {
+    number: "3",
+    location: "basement",
+    isAvailable: true,
+  },
+];

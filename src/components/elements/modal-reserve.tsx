@@ -16,62 +16,7 @@ import { z } from "zod";
 import { FormProvider } from "@/context/form-context";
 import { Textarea } from "../ui/textarea";
 import { IL_SUCCESS } from "@/assets";
-
-const CATEGORY_FLOOR = [
-  {
-    label: "1st Floor",
-    value: "floor1",
-  },
-  {
-    label: "2nd Floor",
-    value: "floor2",
-  },
-  {
-    label: "Outdor",
-    value: "outdor",
-  },
-  {
-    label: "Rooftop",
-    value: "rooftop",
-  },
-  {
-    label: "Basement",
-    value: "basement",
-  },
-];
-
-const LIST_TABLES = [
-  {
-    number: "2",
-    location: "floor1",
-    isAvailable: true,
-  },
-  {
-    number: "3",
-    location: "floor1",
-    isAvailable: true,
-  },
-  {
-    number: "3",
-    location: "floor1",
-    isAvailable: true,
-  },
-  {
-    number: "3",
-    location: "floor1",
-    isAvailable: true,
-  },
-  {
-    number: "2",
-    location: "floor1",
-    isAvailable: true,
-  },
-  {
-    number: "2",
-    location: "floor1",
-    isAvailable: true,
-  },
-];
+import { CATEGORY_FLOOR, LIST_TABLES } from "@/constants";
 
 const formValidation = z.object({
   firstName: z
@@ -193,7 +138,10 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
           <div className="flex items-center gap-2 flex-wrap">
             {CATEGORY_FLOOR.map((category) => (
               <Badge
-                onClick={() => setSelectedFloor(category.value)}
+                onClick={() => {
+                  setSelectedFloor(category.value);
+                  setSelectedTable(0);
+                }}
                 color={
                   selectedFloor === category.value ? "primary" : "secondary"
                 }
@@ -206,16 +154,18 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
           </div>
         </div>
         <div className="grid grid-cols-3 gap-8 my-16">
-          {LIST_TABLES.map((table, i) => (
-            <ReservedTable
-              isSelected={i + 1 === selectedTable}
-              key={`${table.location}_${i}`}
-              isAvailable={table.isAvailable}
-              number={table.number as "2" | "3"}
-              tableNumber={i + 1}
-              onClick={(v) => setSelectedTable(v)}
-            />
-          ))}
+          {LIST_TABLES.filter((x) => x.location === selectedFloor).map(
+            (table, i) => (
+              <ReservedTable
+                isSelected={i + 1 === selectedTable}
+                key={`${table.location}_${i}`}
+                isAvailable={table.isAvailable}
+                number={table.number as "2" | "3"}
+                tableNumber={i + 1}
+                onClick={(v) => setSelectedTable(v)}
+              />
+            ),
+          )}
         </div>
         <div className="flex items-center gap-2">
           <Button

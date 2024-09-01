@@ -1,3 +1,4 @@
+import { twMerge } from "tailwind-merge";
 import {
   IL_TABLE_2_DISABLED,
   IL_TABLE_2_OUTLINE,
@@ -38,9 +39,12 @@ export const ReservedTable = ({
 }: Props) => {
   return (
     <div
-      className="relative flex items-center justify-center cursor-pointer"
+      className={twMerge(
+        "relative flex items-center justify-center cursor-pointer",
+        !isAvailable && "cursor-not-allowed",
+      )}
       role="button"
-      onClick={() => onClick(tableNumber)}
+      onClick={isAvailable ? () => onClick(tableNumber) : () => null}
     >
       <Image
         src={
