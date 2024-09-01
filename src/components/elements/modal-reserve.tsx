@@ -74,11 +74,11 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
       },
       {
         label: "Date",
-        value: informationDetail.date.toString(),
+        value: informationDetail.date ?? "",
       },
       {
         label: "Hours",
-        value: informationDetail.time.toString(),
+        value: informationDetail.time ?? "",
       },
       {
         label: "Number of Person",
@@ -115,11 +115,17 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
   const [tax, setTax] = useState(0);
   const handleNext = () => {
     if (currentStep === 2) {
-      setSelectedTable(0);
-      setInformationDetail(defaultInformation);
-      form.reset(defaultInformation);
+      setIsLoading(true);
+      setTimeout(() => {
+        setCurrentStep((prev) => (prev += 1));
+        setIsLoading(false);
+        setSelectedTable(0);
+        setInformationDetail(defaultInformation);
+        form.reset(defaultInformation);
+      }, 3000);
+    } else {
+      setCurrentStep((prev) => (prev += 1));
     }
-    setCurrentStep((prev) => (prev += 1));
   };
 
   const handleBack = () => {
@@ -189,16 +195,12 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
 
   const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = async (values: typeof informationDetail) => {
-    setIsLoading(true);
     setInformationDetail(values);
     const price = Math.round(Math.random() * 100);
     const tax = Math.round(Math.random() * 10);
     setPrice(price);
     setTax(tax);
-    setTimeout(() => {
-      setIsLoading(false);
-      handleNext();
-    }, 3000);
+    handleNext();
   };
 
   const renderStep2 = () => {
@@ -347,10 +349,15 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
             color="secondary"
             className="w-[100px] mt-5"
             onClick={handleBack}
+            disabled={isLoading}
           >
             Back
           </Button>
-          <Button onClick={handleNext} className="w-full mt-5">
+          <Button
+            onClick={handleNext}
+            className="w-full mt-5"
+            isLoading={isLoading}
+          >
             Pay and Reserve
           </Button>
         </div>
