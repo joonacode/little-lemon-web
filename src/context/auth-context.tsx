@@ -92,8 +92,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         type: AuthActionKind.INITIAL,
         payload: { users: parsedUsers, me: parsedMe },
       });
-    } catch(e) {
-      console.log('x',e )
+    } catch {
       dispatch({
         type: AuthActionKind.INITIAL,
         payload: { users: [], me: undefined },

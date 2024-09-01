@@ -27,7 +27,6 @@ export const ModalLogin = ({ isOpen, onClose }: ModalProps) => {
   });
   const handleSubmit = async (values: typeof defaultValue) => {
     const me = state.users.find((x) => x.email === values.email);
-    console.log('me', {x: state.users, a: values})
     if (!me) {
       addToast({ title: "Email not found", status: "error" });
       return;

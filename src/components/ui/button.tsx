@@ -18,7 +18,7 @@ const SIZE = {
   xl: "text-lg px-5 py-3",
 };
 
-type Props = PropsWithChildren<
+export type ButtonProps = PropsWithChildren<
   ButtonHTMLAttributes<HTMLButtonElement> & {
     className?: string;
     color?: keyof typeof COLOR;
@@ -36,7 +36,7 @@ export const Button = ({
   children,
   disabled,
   ...props
-}: Props) => {
+}: ButtonProps) => {
   return (
     <button
       type={type}
