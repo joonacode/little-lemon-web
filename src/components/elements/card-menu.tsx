@@ -25,13 +25,13 @@ export const CardMenu = ({
   const { dispatch } = useCart();
 
   return (
-    <div className="rounded-[12px] overflow-hidden bg-orange-100 border border-orange-300">
+    <div className="xs:rounded-xl rounded-none overflow-hidden bg-[transparent] xs:bg-orange-100 xs:border border-b xs:border-orange-300 border-brown-100/20 flex xs:flex-col flex-row-reverse xs:items-start items-center pb-5">
       <Image
         src={images}
         alt={title}
-        className="h-[250px] w-full object-cover"
+        className="xs:h-[250px] h-[140px] w-[110px] rounded-xl xs:rounded-none xs:w-full object-cover"
       />
-      <div className="p-4">
+      <div className="xs:p-4 p-0">
         <h5 className="font-bold text-lg">{title}</h5>
         <div className="flex items-center space-x-2 mb-2">
           <span className="font-medium">${price}</span>
@@ -43,8 +43,20 @@ export const CardMenu = ({
           <span className="block h-2 w-2 rounded-full bg-dark-200" />
           <span className="font-medium">{category}</span>
         </div>
-        <p className="text-dark-300 mb-4">{description}</p>
+        <p className="text-dark-300 mb-4 xs:h-auto h-[50px] text-ellipsis overflow-hidden">
+          {description}
+        </p>
         <Button
+          className="xs:hidden block"
+          size="sm"
+          onClick={() =>
+            dispatch({ type: CartActionKind.ADD, payload: { id, amount: 1 } })
+          }
+        >
+          Add to Cart
+        </Button>
+        <Button
+          className="xs:block hidden"
           onClick={() =>
             dispatch({ type: CartActionKind.ADD, payload: { id, amount: 1 } })
           }
