@@ -1,10 +1,11 @@
-import { useCart } from "@/hooks/use-context";
+import { useAuth, useCart } from "@/hooks/use-context";
 import { Button, Container, Image } from "../ui";
 import { IC_CART, LOGO, LOGO_FULL } from "@/assets";
 import { ModalRegister } from "./modal-register";
 import { useModal } from "@/hooks/use-modal";
 import { ModalLogin } from "./modal-login";
 import { useEffect, useRef, useState } from "react";
+import { AuthActionKind } from "@/context";
 
 export const MENUS = [
   {
@@ -44,6 +45,7 @@ export const Header = () => {
   } = useModal();
 
   const { state } = useCart();
+  const { state: authState, dispatch } = useAuth();
 
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -91,7 +93,7 @@ export const Header = () => {
             />
             <Image src={LOGO} alt="Logo" className="w-[30px] md:hidden block" />
           </a>
-          <nav className="flex items-center gap-5 md:flex hidden">
+          <nav className="items-center gap-5 md:flex hidden">
             {MENUS.map((menu, i) => (
               <a key={i} href={menu.href} onClick={handleClick(menu.id)}>
                 {menu.title}
@@ -107,10 +109,22 @@ export const Header = () => {
                 </div>
               ) : null}
             </div>
-            <Button onClick={openModalLogin}>Login</Button>
-            <Button onClick={openModalRegister} color="secondary">
-              Register
-            </Button>
+            {authState.me ? (
+              <Button
+                onClick={() =>
+                  dispatch({ type: AuthActionKind.LOGOUT, payload: undefined })
+                }
+              >
+                Logout
+              </Button>
+            ) : (
+              <>
+                <Button onClick={openModalLogin}>Login</Button>
+                <Button onClick={openModalRegister} color="secondary">
+                  Register
+                </Button>
+              </>
+            )}
           </div>
         </Container>
       </header>

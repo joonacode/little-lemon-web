@@ -30,7 +30,7 @@ export const BestSeller = () => {
         <h2 className="font-medium text-3xl">Top Sellers</h2>
         <Button>All Menu</Button>
       </div>
-      <div className="pb-6 border-b mb-6 300 border-brown-100/20">
+      <div className="pb-6 border-b mb-6 300 border-brown-100/20 xs:hidden block">
         <h2 className="font-medium mb-3 text-3xl">Order For Delivery</h2>
         <div className="flex items-center gap-2">
           {CATEGORY.map((item) => (

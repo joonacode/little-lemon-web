@@ -56,6 +56,13 @@ function cartReducer(state: AuthState, action: AuthAction) {
         me,
       };
     }
+    case AuthActionKind.LOGOUT: {
+      localStorage.removeItem("me");
+      return {
+        ...state,
+        me:undefined,
+      };
+    }
     case AuthActionKind.INITIAL: {
       return {
         ...state,

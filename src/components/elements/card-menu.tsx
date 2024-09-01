@@ -25,7 +25,7 @@ export const CardMenu = ({
   const { dispatch } = useCart();
 
   return (
-    <div className="xs:rounded-xl rounded-none overflow-hidden bg-[transparent] xs:bg-orange-100 xs:border border-b xs:border-orange-300 border-brown-100/20 flex xs:flex-col flex-row-reverse xs:items-start items-center pb-5">
+    <div className="xs:rounded-xl rounded-none overflow-hidden bg-[transparent] xs:bg-orange-100 xs:border border-b xs:border-orange-300 border-brown-100/20 flex xs:flex-col flex-row-reverse xs:items-start items-center xs:pb-0 pb-5">
       <Image
         src={images}
         alt={title}
