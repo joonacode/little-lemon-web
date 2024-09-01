@@ -9,7 +9,8 @@ export default {
       title: ["Merriweather", ...defaultTheme.fontFamily.sans],
     },
     screens: {
-      xs: "400px",
+      xss: "400px",
+      xs: "480px",
       sm: "640px",
       md: "768px",
       lg: "1024px",

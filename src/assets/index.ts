@@ -16,6 +16,7 @@ export {default as IL_FOOD} from './images/illustrations/il_food.png'
 export {default as IL_SUNRISE} from './images/illustrations/il_sunrise.png'
 export {default as IL_IMAGE_CRASH} from './images/illustrations/il_img_crash.svg'
 export {default as IL_ABOUT} from './images/illustrations/il_about.png'
+export {default as IL_SUCCESS} from './images/illustrations/il_success.png'
 
 export {default as IL_TABLE_3_DISABLED} from './images/illustrations/table_3_disable.svg'
 export {default as IL_TABLE_2_DISABLED} from './images/illustrations/table_2_disable.svg'

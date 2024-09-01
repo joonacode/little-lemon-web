@@ -47,9 +47,6 @@ const CONTACT = [
   {
     title: "contact@littlelemon.com",
   },
-  {
-    title: "TikTok",
-  },
 ];
 
 export const Footer = () => {

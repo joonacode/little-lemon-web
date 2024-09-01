@@ -1,12 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
-import { Badge, Button, Field, Modal, ModalProps, Textfield } from "../ui";
+import {
+  Badge,
+  Button,
+  Field,
+  Image,
+  Modal,
+  ModalProps,
+  Textfield,
+} from "../ui";
 import { twMerge } from "tailwind-merge";
 import { ReservedTable } from "./reserved-table";
 import { useHookForm } from "@/hooks/use-form";
 import { z } from "zod";
 import { FormProvider } from "@/context/form-context";
 import { Textarea } from "../ui/textarea";
+import { IL_SUCCESS } from "@/assets";
 
 const CATEGORY_FLOOR = [
   {
@@ -164,12 +173,9 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
   const [tax, setTax] = useState(0);
   const handleNext = () => {
     if (currentStep === 2) {
-      setCurrentStep(0);
-      onClose();
       setSelectedTable(0);
       setInformationDetail(defaultInformation);
       form.reset(defaultInformation);
-      return;
     }
     setCurrentStep((prev) => (prev += 1));
   };
@@ -252,8 +258,8 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
           onSubmit={form.handleSubmit(handleSubmit)}
         >
           <FormProvider {...form}>
-            <div className="flex flex-col gap-4 max-h-[70svh] overflow-auto mr-[-1.25rem] pr-5 xs:mr-0 xs:mr-0">
-              <div className="grid grid-cols-1 xs:grid-cols-2 gap-4">
+            <div className="flex flex-col gap-4 max-h-[70svh] overflow-auto mr-[-1.25rem] pr-5 xss:mr-0 xss:pr-0">
+              <div className="grid grid-cols-1 xss:grid-cols-2 gap-4">
                 <Field
                   label="First Name"
                   component={Textfield}
@@ -267,7 +273,7 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
                   placeholder="Enter last name"
                 />
               </div>
-              <div className="grid grid-cols-1 xs:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 xss:grid-cols-2 gap-4">
                 <Field
                   label="Date"
                   component={Textfield}
@@ -284,7 +290,7 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
                   placeholder="Select time"
                 />
               </div>
-              <div className="grid grid-cols-1 xs:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 xss:grid-cols-2 gap-4">
                 <Field
                   label="Email"
                   component={Textfield}
@@ -395,33 +401,64 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
     );
   };
 
+  const renderStep4 = () => {
+    return (
+      <>
+        <Image
+          src={IL_SUCCESS}
+          alt="success"
+          className="md:w-[50%] w-[70%] mx-auto"
+        />
+        <h2 className="xs:text-3xl text-2xl text-center font-bold mb-3">
+          Your Reservation is Confirmed!
+        </h2>
+        <p className="text-center text-dark-300 mb-4">
+          Please check your email for reservation details and further
+          instructions.
+        </p>
+        <Button
+          onClick={() => {
+            setCurrentStep(0);
+            onClose();
+          }}
+          className="w-full mt-5"
+        >
+          Close
+        </Button>
+      </>
+    );
+  };
+
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className="flex items-center justify-between gap-5 mb-5">
-        <div className="grid grid-cols-3 flex-1 gap-1">
-          {["Select Table", "Information Detail", "Order Summary"].map(
-            (data, i) => (
-              <div key={i}>
-                <span className="text-center block text-dark-300 mb-2 sm:text-base text-xs xs:block hidden">
-                  {data}
-                </span>
-                <div
-                  key={i}
-                  className={twMerge(
-                    "h-3 w-full bg-yellow-200",
-                    i <= currentStep && "bg-yellow-400",
-                    i === 0 && "rounded-l-xl",
-                    i === 2 && "rounded-r-xl",
-                  )}
-                />
-              </div>
-            ),
-          )}
+      {currentStep < 3 && (
+        <div className="flex items-center justify-between gap-5 mb-5">
+          <div className="grid grid-cols-3 flex-1 gap-1">
+            {["Select Table", "Information Detail", "Order Summary"].map(
+              (data, i) => (
+                <div key={i}>
+                  <span className="text-center text-dark-300 mb-2 sm:text-base text-xs xss:block hidden">
+                    {data}
+                  </span>
+                  <div
+                    key={i}
+                    className={twMerge(
+                      "h-3 w-full bg-yellow-200",
+                      i <= currentStep && "bg-yellow-400",
+                      i === 0 && "rounded-l-xl",
+                      i === 2 && "rounded-r-xl",
+                    )}
+                  />
+                </div>
+              ),
+            )}
+          </div>
         </div>
-      </div>
+      )}
       {currentStep === 0 && renderStep1()}
       {currentStep === 1 && renderStep2()}
       {currentStep === 2 && renderStep3()}
+      {currentStep === 3 && renderStep4()}
     </Modal>
   );
 };
