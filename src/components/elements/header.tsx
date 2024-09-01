@@ -91,7 +91,7 @@ export const Header = () => {
             />
             <Image src={LOGO} alt="Logo" className="w-[30px] md:hidden block" />
           </a>
-          <nav className="flex items-center gap-5 md:block hidden">
+          <nav className="flex items-center gap-5 md:flex hidden">
             {MENUS.map((menu, i) => (
               <a key={i} href={menu.href} onClick={handleClick(menu.id)}>
                 {menu.title}
