@@ -9,16 +9,16 @@ const CATEGORY = [
     label: "Launch",
   },
   {
-    value: "Mains",
-    label: "mains",
+    label: "Mains",
+    value: "mains",
   },
   {
-    value: "Desserts",
-    label: "deserts",
+    label: "Desserts",
+    value: "deserts",
   },
   {
-    value: "A La Carte",
-    label: "alacarte",
+    label: "A La Carte",
+    value: "alacarte",
   },
 ];
 
