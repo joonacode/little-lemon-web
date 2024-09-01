@@ -3,7 +3,8 @@ import { twMerge } from "tailwind-merge";
 
 const COLOR = {
   primary: "border-2 border-yellow-400 bg-yellow-400 text-dark-400 ",
-  "primary-outline": "border-2 bg-[transparent] border-yellow-400 text-dark-400 ",
+  "primary-outline":
+    "border-2 bg-[transparent] border-yellow-400 text-dark-400 ",
   secondary: "border-2 border-brown-400 bg-brown-400 text-white",
   "secondary-outline": "border-2 border-brown-400 bg-[transparent] text-dark",
 };
@@ -26,6 +27,7 @@ export type ButtonProps = PropsWithChildren<
     color?: keyof typeof COLOR;
     size?: keyof typeof SIZE;
     rounded?: keyof typeof ROUNDED;
+    isLoading?: boolean;
   }
 >;
 
@@ -37,6 +39,7 @@ export const Button = ({
   rounded = "base",
   children,
   disabled,
+  isLoading,
   ...props
 }: ButtonProps) => {
   return (
@@ -47,13 +50,14 @@ export const Button = ({
         COLOR[color],
         SIZE[size],
         ROUNDED[rounded],
-        disabled && '!opacity-50 !cursor-auto',
+        disabled && "!opacity-50 !cursor-auto",
+        isLoading && "!opacity-50 !cursor-auto",
         className,
       )}
       {...props}
       onClick={disabled ? () => null : props.onClick}
     >
-      {children}
+      {isLoading ? "Loading..." : children}
     </button>
   );
 };

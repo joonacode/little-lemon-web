@@ -89,10 +89,7 @@ const formValidation = z.object({
   numberPerson: z
     .string({ message: "Required" })
     .min(1, { message: "Min 1 person" }),
-  notes: z
-    .string({ message: "Required" })
-    .min(3, { message: "Min 3 character" })
-    .max(50, { message: "Max 50 character" }),
+  notes: z.string().nullable(),
 });
 const defaultInformation = {
   firstName: null as any,
@@ -240,13 +237,18 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
     );
   };
 
+  const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = async (values: typeof informationDetail) => {
+    setIsLoading(true);
     setInformationDetail(values);
     const price = Math.round(Math.random() * 100);
     const tax = Math.round(Math.random() * 10);
     setPrice(price);
     setTax(tax);
-    handleNext();
+    setTimeout(() => {
+      setIsLoading(false);
+      handleNext();
+    }, 3000);
   };
 
   const renderStep2 = () => {
@@ -326,10 +328,15 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
                 color="secondary"
                 className="w-[100px] mt-5"
                 onClick={handleBack}
+                disabled={isLoading}
               >
                 Back
               </Button>
-              <Button type="submit" className="w-full mt-5">
+              <Button
+                type="submit"
+                className="w-full mt-5"
+                isLoading={isLoading}
+              >
                 Continue
               </Button>
             </div>
