@@ -2,8 +2,10 @@ import { ButtonHTMLAttributes, PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
 
 const COLOR = {
-  primary: "bg-yellow-400 text-dark-400 ",
-  secondary: "bg-brown-400 text-white",
+  primary: "border-2 border-yellow-400 bg-yellow-400 text-dark-400 ",
+  "primary-outline": "border-2 bg-[transparent] border-yellow-400 text-dark-400 ",
+  secondary: "border-2 border-brown-400 bg-brown-400 text-white",
+  "secondary-outline": "border-2 border-brown-400 bg-[transparent] text-dark",
 };
 
 const ROUNDED = {

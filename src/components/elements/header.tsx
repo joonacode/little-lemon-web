@@ -120,7 +120,10 @@ export const Header = () => {
             ) : (
               <>
                 <Button onClick={openModalLogin}>Login</Button>
-                <Button onClick={openModalRegister} color="secondary">
+                <Button
+                  onClick={openModalRegister}
+                  color="primary-outline"
+                >
                   Register
                 </Button>
               </>

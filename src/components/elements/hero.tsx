@@ -34,13 +34,14 @@ export const Hero = () => {
             <Button size="lg" onClick={onOpen}>
               Reserve Now
             </Button>
-            <Button
-              className="bg-brown-400/10 text-dark-400 xs:block hidden"
-              color="secondary"
-              size="lg"
-            >
-              Order Online
-            </Button>
+            <a href="/#best-sellers">
+              <Button
+                color="secondary-outline"
+                size="lg"
+              >
+                Order Online
+              </Button>
+            </a>
           </div>
         </div>
         <Image
