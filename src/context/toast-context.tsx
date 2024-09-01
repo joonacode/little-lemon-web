@@ -84,7 +84,7 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
     return (
       <div
         className={twMerge(
-          "fixed min-w-[300px] max-w-[400px] h-auto flex flex-col gap-3",
+          "fixed min-w-[300px] max-w-[400px] h-auto flex flex-col gap-3 z-[1111]",
           position === "top-right" && "top-2 right-2",
           position === "top-left" && "top-2 left-2",
           position === "top-center" && "top-2 left-[40%]",
