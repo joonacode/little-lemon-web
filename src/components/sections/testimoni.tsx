@@ -8,9 +8,9 @@ type Props = {
 
 export const Testimoni = ({ className }: Props) => {
   return (
-    <div id="best-sellers" className={twMerge("py-20", className)}>
-      <div className="flex items-center justify-center mb-10">
-        <h2 className="font-medium text-3xl">Testimoni</h2>
+    <div id="testimoni" className={twMerge("pt-28 pb-40 bg-orange-200/50 rounded-[5%]", className)}>
+      <div className="flex items-center justify-center mb-16">
+        <h2 className="font-medium text-3xl">What People Says About Little Lemon</h2>
       </div>
       <div className="w-full flex overflow-hidden mb-4">
         <div className="flex scroll-testimoni gap-4">

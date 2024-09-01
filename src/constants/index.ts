@@ -18,7 +18,7 @@ export const BEST_SELLERS = [
     rating: "4.9",
     category: "Spicy",
     description:
-      "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil. Toppings of tomato, veggies, beans, cured pork, or cheese are examples of variations. In Italy, a brustolina grill is frequently used to create bruschetta.",
+      "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil. ",
     images: PRODUCT1,
   },
   {

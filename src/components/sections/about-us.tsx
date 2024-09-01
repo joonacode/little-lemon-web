@@ -3,7 +3,7 @@ import { Container, Image } from "../ui";
 
 export const AboutUs = () => {
   return (
-    <Container as="section" className="py-0 flex items-center justify-between">
+    <Container id="about" as="section" className="py-0 flex items-center justify-between">
       <div className="flex-1">
         <h1 className="font-title font-bold text-3xl mb-3">About Us</h1>
         <p className="w-[80%] text-dark-300 text-lg mb-4">

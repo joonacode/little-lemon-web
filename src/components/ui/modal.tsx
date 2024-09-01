@@ -28,10 +28,10 @@ export const Modal = ({
   if (!isOpen) return null;
   const renderData = () => {
     return (
-      <div className="w-full h-full bg-dark-400/80 backdrop-blur flex items-center justify-center fixed top-0 left-0">
+      <div className="w-full h-full bg-dark-400/80 backdrop-blur flex items-center justify-center fixed top-0 left-0 z-50">
         <div className={twMerge("bg-yellow-100 rounded-xl p-5", SIZE[size])}>
           {title ? (
-            <div className="flex items-center justify-between gap-2 mb-4">
+            <div className="flex items-center justify-between gap-2 mb-5 border-b pb-4 border-dark-100">
               <div>
                 <h2 className="font-bold text-2xl">{title}</h2>
                 {description && <p className="text-dark-300 mt-1">{description}</p>}

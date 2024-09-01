@@ -4,7 +4,7 @@ import { Button, Container } from "../ui";
 
 export const BestSeller = () => {
   return (
-    <Container as={"section"} id="best-sellers" className="py-20">
+    <Container as={"section"} id="best-sellers" className="pb-32 scroll-mt-28">
       <div className="flex items-center justify-between mb-10">
         <h2 className="font-medium text-3xl">Top Sellers</h2>
         <Button>All Menu</Button>

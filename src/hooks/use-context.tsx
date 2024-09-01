@@ -1,7 +1,5 @@
 import { useContext } from "react";
-import { CartContext } from "../context/cart-context";
-import { FormContext } from "@/context/form-context";
-import { AuthContext } from "@/context";
+import { AuthContext, CartContext, FormContext, ToastContext } from "@/context";
 
 export const useCart = () => {
   const context = useContext(CartContext);
@@ -23,6 +21,14 @@ export const useAuth = () => {
   const context = useContext(AuthContext);
   if (context === undefined) {
     throw Error("useAuth must wrapped with AuthProvider");
+  }
+  return context;
+};
+
+export const useToast = () => {
+  const context = useContext(ToastContext);
+  if (context === undefined) {
+    throw Error("useToast must wrapped with ToastProvider");
   }
   return context;
 };

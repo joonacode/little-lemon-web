@@ -1,11 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ToastCardProps } from "@/components/ui";
 import ToastCard from "@/components/ui/toast";
-import React, {
-  createContext,
-  useState,
-  useMemo,
-  useEffect,
-} from "react";
+import React, { createContext, useState, useMemo, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { twMerge } from "tailwind-merge";
 
@@ -47,7 +43,7 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
         closeDuration: 5000,
         position: "top-right",
         ...newItem,
-        title: `${newItem.title}-${current.length + 1}`,
+        title: `${newItem.title}`,
         id: `${current.length + 1}`,
       },
     ]);
@@ -97,7 +93,7 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
           position === "bottom-center" && "bottom-2 left-[40%]",
         )}
       >
-        {toasts.map((item) => (
+        {toasts.map(({ autoClose, closeDuration, ...item }) => (
           <div key={item.id} className={twMerge("toast-fade")}>
             <ToastCard
               {...item}

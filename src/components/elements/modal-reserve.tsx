@@ -168,7 +168,7 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
       onClose();
       setSelectedTable(0);
       setInformationDetail(defaultInformation);
-      form.reset(defaultInformation)
+      form.reset(defaultInformation);
       return;
     }
     setCurrentStep((prev) => (prev += 1));
@@ -283,19 +283,21 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
                 placeholder="Select time"
               />
             </div>
-            <Field
-              label="Email"
-              component={Textfield}
-              name="email"
-              type="email"
-              placeholder="Enter email"
-            />
-            <Field
-              label="Phone Number"
-              component={Textfield}
-              name="phoneNumber"
-              placeholder="Enter phone number"
-            />
+            <div className="grid grid-cols-2 gap-4">
+              <Field
+                label="Email"
+                component={Textfield}
+                name="email"
+                type="email"
+                placeholder="Enter email"
+              />
+              <Field
+                label="Phone Number"
+                component={Textfield}
+                name="phoneNumber"
+                placeholder="Enter phone number"
+              />
+            </div>
             <Field
               min={1}
               max={100}

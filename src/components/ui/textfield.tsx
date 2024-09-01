@@ -13,6 +13,7 @@ export const Textfield = ({
   type = "text",
   label,
   name,
+  isError,
   ...props
 }: Props) => {
   return (
@@ -28,7 +29,7 @@ export const Textfield = ({
         type={type}
         className={twMerge(
           "outline-none border border-dark-200/20 focus:border-dark-200 text-sm px-4 py-3 w-full rounded-xl bg-[transparent]",
-          props.isError && "border-[red]/50",
+          isError && "border-[red]/50",
           className,
         )}
         {...props}

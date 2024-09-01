@@ -6,9 +6,9 @@ import { IL_FOOD } from "@/assets";
 export const Hero = () => {
   const { isOpen, onClose, onOpen } = useModal();
   return (
-    <Container as="section" className="py-0 flex items-center justify-between">
+    <Container as="section" className="py-0 flex items-center justify-between h-[calc(100svh_-_70px)] relative bottom-12">
       <div className="flex-1">
-        <h1 className="font-title font-bold text-5xl mb-3 leading-[60px]">
+        <h1 className="font-title font-bold text-6xl mb-3 leading-[76px]">
           Little Lemon,
           <br />
           Mediterranean <br />

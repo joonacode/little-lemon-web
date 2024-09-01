@@ -5,6 +5,7 @@
 @layer base {
   html {
     font-family: "Ubuntu", system-ui, sans-serif;
+    scroll-behavior: smooth;
     @apply bg-yellow-100 text-dark-400;
   }
   .scroll-testimoni {
@@ -24,7 +25,7 @@
   }
 
   .toast-fade {
-    animation: toast-animation-fade 4s;
+    animation: toast-animation-fade 3s;
   }
 
   @keyframes toast-animation-fade {
