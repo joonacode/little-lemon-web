@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Ubuntu", system-ui, sans-serif;
+    @apply bg-yellow-100 text-dark-400;
+  }
+  .scroll-testimoni {
+    animation: marquee 160s linear infinite;
+  }
+
+  .scroll-testimoni:hover {
+    animation-play-state: paused;
+  }
+
+  .scroll-testimoni-reverse {
+    animation: marquee-reverse 160s linear infinite;
+  }
+
+  .scroll-testimoni-reverse:hover {
+    animation-play-state: paused;
+  }
+
+  .toast-fade {
+    animation: toast-animation-fade 4s;
+  }
+
+  @keyframes toast-animation-fade {
+    from {
+      opacity: 0;
+    }
+
+    25% {
+      opacity: 3;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(-0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-reverse {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(-0%);
+    }
+  }
+}
