@@ -6,7 +6,7 @@ import { IC_X } from "@/assets";
 
 const SIZE = {
   sm: "w-[550px]",
-  base: "w-[50%]",
+  base: "w-full lg:w-[800px]",
 };
 
 export type ModalProps = PropsWithChildren<{

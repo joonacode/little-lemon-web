@@ -57,14 +57,14 @@ export const Footer = () => {
     <div className="border-t border-orange-300">
       <Container
         as="section"
-        className="flex gap-0 items-start justify-between py-24"
+        className="flex gap-0 items-start justify-between py-16 md:py-24"
       >
-        <div className="w-[300px]">
+        <div className="hidden md:block w-[200px] xl:w-[300px]">
           <Image src={LOGO} alt="logo" className="w-[100px]" />
         </div>
-        <div className="flex-1 grid grid-cols-4">
-          <div>
-            <h6 className="font-medium text-lg mb-4">Sitemaps</h6>
+        <div className="flex-1 grid gap-y-5 lg:gap-0 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="col-span-1">
+            <h6 className="font-medium text-lg md:mb-4 mb-2">Sitemaps</h6>
             <div className="flex flex-col gap-2">
               {MENUS.map((menu, i) => (
                 <a key={i} href={menu.href} className="text-dark-300">
@@ -73,8 +73,8 @@ export const Footer = () => {
               ))}
             </div>
           </div>
-          <div>
-            <h6 className="font-medium text-lg mb-4">Product</h6>
+          <div className="col-span-1">
+            <h6 className="font-medium text-lg md:mb-4 mb-2">Product</h6>
             <div className="flex flex-col gap-2">
               {PRODUCT.map((menu, i) => (
                 <a key={i} href={menu.href} className="text-dark-300">
@@ -83,8 +83,8 @@ export const Footer = () => {
               ))}
             </div>
           </div>
-          <div>
-            <h6 className="font-medium text-lg mb-4">Social Media</h6>
+          <div className="col-span-2 md:col-span-1 lg:col-span-1">
+            <h6 className="font-medium text-lg md:mb-4 mb-2">Social Media</h6>
             <div className="flex flex-col gap-2">
               {SOCIAL_MEDIA.map((menu, i) => (
                 <a key={i} href={menu.href} className="text-dark-300">
@@ -93,8 +93,8 @@ export const Footer = () => {
               ))}
             </div>
           </div>
-          <div>
-            <h6 className="font-medium text-lg mb-4">Contact</h6>
+          <div className="col-span-2 lg:col-span-1">
+            <h6 className="font-medium text-lg md:mb-4 mb-2">Contact</h6>
             <div className="flex flex-col gap-2">
               {CONTACT.map((menu, i) => (
                 <span key={i} className="text-dark-300">
@@ -105,9 +105,9 @@ export const Footer = () => {
           </div>
         </div>
       </Container>
-      <Container className="border-t border-orange-300 py-5 flex items-center justify-between">
-        <p className="">Copyright &copy; {new Date().getFullYear()} Little Lemon </p>
-        <p className="">Develop by <a className="underline" href="https://github.com/joonacode" target="_blank">Joonacode</a></p>
+      <Container className="border-t border-orange-300 py-5 flex items-center justify-between sm:flex-row flex-col">
+        <p className="text-sm">Copyright &copy; {new Date().getFullYear()} Little Lemon </p>
+        <p className="text-sm">Develop by <a className="underline" href="https://github.com/joonacode" target="_blank">Joonacode</a></p>
       </Container>
     </div>
   );

@@ -13,7 +13,7 @@ export const Container = forwardRef(
     return (
       <As
         ref={ref}
-        className={twMerge("max-w-[1300px] mx-auto px-8", className)}
+        className={twMerge("max-w-[1300px] mx-auto px-4 md:px-8", className)}
         {...props}
       >
         {children}

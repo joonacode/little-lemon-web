@@ -1,6 +1,6 @@
 import { useCart } from "@/hooks/use-context";
 import { Button, Container, Image } from "../ui";
-import { IC_CART, LOGO_FULL } from "@/assets";
+import { IC_CART, LOGO, LOGO_FULL } from "@/assets";
 import { ModalRegister } from "./modal-register";
 import { useModal } from "@/hooks/use-modal";
 import { ModalLogin } from "./modal-login";
@@ -83,8 +83,15 @@ export const Header = () => {
         ref={headerRef}
       >
         <Container className="flex items-center justify-between">
-          <Image src={LOGO_FULL} alt="Logo" className="w-[160px]" />
-          <nav className="flex items-center gap-5">
+          <a href="/#">
+            <Image
+              src={LOGO_FULL}
+              alt="Logo"
+              className="w-[160px] md:block hidden"
+            />
+            <Image src={LOGO} alt="Logo" className="w-[30px] md:hidden block" />
+          </a>
+          <nav className="flex items-center gap-5 md:block hidden">
             {MENUS.map((menu, i) => (
               <a key={i} href={menu.href} onClick={handleClick(menu.id)}>
                 {menu.title}

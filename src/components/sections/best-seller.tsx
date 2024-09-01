@@ -9,7 +9,7 @@ export const BestSeller = () => {
         <h2 className="font-medium text-3xl">Top Sellers</h2>
         <Button>All Menu</Button>
       </div>
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 xl:gap-6">
         {BEST_SELLERS.map((menu, i) => (
           <CardMenu key={i} {...menu} />
         ))}
