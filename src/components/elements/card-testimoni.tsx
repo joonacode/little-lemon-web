@@ -17,7 +17,7 @@ export const CardTestimoni = ({ name, comment, avatar, className }: Props) => {
       )}
     >
       <p className="text-dark-300">&quot;{comment}&quot;</p>
-      <div className="border-t border-dashed flex items-center justify-between gap-2 pt-4 mt-4">
+      <div className="border-t border-dark-100 border-dashed flex items-center justify-between gap-2 pt-4 mt-4">
         <p className="font-medium capitalize">{name}</p>
         <Image
           className="h-10 bg-dark-100 w-10 rounded-full object-cover"

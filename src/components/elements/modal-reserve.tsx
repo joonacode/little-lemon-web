@@ -187,7 +187,7 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
       <>
         <div className="">
           <h2 className="text-2xl mb-3 font-medium">Select Table</h2>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             {CATEGORY_FLOOR.map((category) => (
               <Badge
                 onClick={() => setSelectedFloor(category.value)}
@@ -248,71 +248,73 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
       <>
         <h2 className="text-2xl font-medium mb-5">Information Detail</h2>
         <form
-          className="flex flex-col gap-4"
+          className="flex flex-col gap-4 "
           onSubmit={form.handleSubmit(handleSubmit)}
         >
           <FormProvider {...form}>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="flex flex-col gap-4 max-h-[70svh] overflow-auto mr-[-1.25rem] pr-5 xs:mr-0 xs:mr-0">
+              <div className="grid grid-cols-1 xs:grid-cols-2 gap-4">
+                <Field
+                  label="First Name"
+                  component={Textfield}
+                  name="firstName"
+                  placeholder="Enter first name"
+                />
+                <Field
+                  label="Last Name"
+                  component={Textfield}
+                  name="lastName"
+                  placeholder="Enter last name"
+                />
+              </div>
+              <div className="grid grid-cols-1 xs:grid-cols-2 gap-4">
+                <Field
+                  label="Date"
+                  component={Textfield}
+                  name="date"
+                  type="date"
+                  placeholder="Select date"
+                  min={new Date().toString()}
+                />
+                <Field
+                  label="Time"
+                  component={Textfield}
+                  name="time"
+                  type="time"
+                  placeholder="Select time"
+                />
+              </div>
+              <div className="grid grid-cols-1 xs:grid-cols-2 gap-4">
+                <Field
+                  label="Email"
+                  component={Textfield}
+                  name="email"
+                  type="email"
+                  placeholder="Enter email"
+                />
+                <Field
+                  label="Phone Number"
+                  component={Textfield}
+                  name="phoneNumber"
+                  placeholder="Enter phone number"
+                />
+              </div>
               <Field
-                label="First Name"
+                min={1}
+                max={100}
+                label="Number of Person"
                 component={Textfield}
-                name="firstName"
-                placeholder="Enter first name"
+                name="numberPerson"
+                type="number"
+                placeholder="Enter total person"
               />
               <Field
-                label="Last Name"
-                component={Textfield}
-                name="lastName"
-                placeholder="Enter last name"
+                label="Notes"
+                component={Textarea}
+                name="notes"
+                placeholder="Enter notes"
               />
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <Field
-                label="Date"
-                component={Textfield}
-                name="date"
-                type="date"
-                placeholder="Select date"
-                min={new Date().toString()}
-              />
-              <Field
-                label="Time"
-                component={Textfield}
-                name="time"
-                type="time"
-                placeholder="Select time"
-              />
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <Field
-                label="Email"
-                component={Textfield}
-                name="email"
-                type="email"
-                placeholder="Enter email"
-              />
-              <Field
-                label="Phone Number"
-                component={Textfield}
-                name="phoneNumber"
-                placeholder="Enter phone number"
-              />
-            </div>
-            <Field
-              min={1}
-              max={100}
-              label="Number of Person"
-              component={Textfield}
-              name="numberPerson"
-              type="number"
-              placeholder="Enter total person"
-            />
-            <Field
-              label="Notes"
-              component={Textarea}
-              name="notes"
-              placeholder="Enter notes"
-            />
             <div className="flex items-center gap-2">
               <Button
                 color="secondary"
@@ -400,7 +402,7 @@ export const ModalReserve = ({ isOpen, onClose }: ModalProps) => {
           {["Select Table", "Information Detail", "Order Summary"].map(
             (data, i) => (
               <div key={i}>
-                <span className="text-center block text-dark-300 mb-2">
+                <span className="text-center block text-dark-300 mb-2 sm:text-base text-xs xs:block hidden">
                   {data}
                 </span>
                 <div
