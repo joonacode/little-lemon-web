@@ -51,7 +51,7 @@ const CONTACT = [
 
 export const Footer = () => {
   return (
-    <div className="border-t border-orange-300">
+    <footer className="border-t border-orange-300">
       <Container
         as="section"
         className="flex gap-0 items-start justify-between py-16 md:py-24"
@@ -106,6 +106,6 @@ export const Footer = () => {
         <p className="text-sm">Copyright &copy; {new Date().getFullYear()} Little Lemon </p>
         <p className="text-sm">Develop by <a className="underline" href="https://github.com/joonacode" target="_blank">Joonacode</a></p>
       </Container>
-    </div>
+    </footer>
   );
 };
